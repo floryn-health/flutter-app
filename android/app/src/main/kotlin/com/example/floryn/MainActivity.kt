@@ -1,4 +1,4 @@
-package com.example.floryn
+package com.health.floryn
 
 import io.flutter.embedding.android.FlutterActivity
 

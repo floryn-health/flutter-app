@@ -2,7 +2,7 @@ import 'package:clay_containers/widgets/clay_container.dart';
 import 'package:floryn/main.dart';
 import 'package:floryn/src/data/enums.dart';
 import 'package:floryn/src/data/service/routes.dart';
-import 'package:floryn/src/ui/widgets/neumorphic.widget.dart';
+import 'package:floryn/src/ui/shared/neumorphic.widget.dart';
 import 'package:floryn/src/utils/colors.dart';
 import 'package:floryn/src/utils/strings.dart';
 import 'package:floryn/src/utils/styles.dart';
@@ -19,13 +19,13 @@ class OnBoardingView extends StatefulWidget {
 class _OnBoardingViewState extends State<OnBoardingView> {
   int currentIndex = 0;
 
-  void nextBoardingScreen() {
+  void nextBoardingScreen({required bool fromSwipe}) {
     if (currentIndex < 2) {
       setState(() {
         currentIndex++;
       });
-    } else if (currentIndex == 2) {
-      Modular.to.navigate(appRouteName(ScreenName.loginandsignup));
+    } else if (currentIndex == 2 && !fromSwipe) {
+      Modular.to.navigate(appRouteName(ScreenName.loginAndSignup));
     }
   }
 
@@ -45,7 +45,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         elevation: 0.0,
         color: getBackgroundColor(currentIndex: currentIndex),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 20.0),
           child: Row(
             mainAxisAlignment: currentIndex == 2
                 ? MainAxisAlignment.center
@@ -54,7 +54,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               if (currentIndex < 2)
                 GestureDetector(
                   onTap: () => Modular.to
-                      .navigate(appRouteName(ScreenName.loginandsignup)),
+                      .navigate(appRouteName(ScreenName.loginAndSignup)),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -75,52 +75,22 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     ],
                   ),
                 ),
-
               GestureDetector(
-                onTap: () => nextBoardingScreen(),
+                onTap: () => nextBoardingScreen(fromSwipe: false),
                 child: ClayContainer(
                     color: getBackgroundColor(currentIndex: currentIndex),
                     height: 50.0,
-                    width: 160,
+                    width: 125.0,
                     borderRadius: 10,
                     depth: 12,
                     spread: 10,
                     emboss: false,
-                    child: Center(child: Text('Next'))),
+                    child: Center(
+                        child: Text(
+                      'Next',
+                      style: FlorynTextStyles.m2(),
+                    ))),
               )
-              // GestureDetector(
-              //   onTap: () => nextBoardingScreen(),
-              //   child: Neumorphic(
-              //     style: const NeumorphicStyle(
-              //         boxShape: NeumorphicBoxShape.circle(),
-              //         depth: -5,
-              //         shape: NeumorphicShape.concave),
-              //     child: Container(
-              //       height: deviceSize.width * 0.16,
-              //       width: deviceSize.width * 0.16,
-              //       alignment: Alignment.center,
-              //       decoration: BoxDecoration(
-              //           color: getBackgroundColor(), shape: BoxShape.circle),
-              //       child: Neumorphic(
-              //         style: const NeumorphicStyle(
-              //             depth: 5, boxShape: NeumorphicBoxShape.circle()),
-              //         child: Container(
-              //           padding: const EdgeInsets.all(4.0),
-              //           decoration: const BoxDecoration(
-              //               color: Colors.white, shape: BoxShape.circle),
-              //           child: Padding(
-              //             padding: const EdgeInsets.only(left: 1.0),
-              //             child: Icon(
-              //               Icons.arrow_forward_ios_rounded,
-              //               size: 16.0,
-              //               color: FlorynColors.primaryColors.symptomchecker,
-              //             ),
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),
@@ -136,7 +106,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
             // Swiping in left direction.
             if (details.primaryVelocity! < 0) {
-              nextBoardingScreen();
+              nextBoardingScreen(fromSwipe: true);
             }
           },
           child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [

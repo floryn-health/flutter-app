@@ -1,1 +1,15 @@
-enum ScreenName { splash, onboarding, loginandsignup }
+enum ScreenName {
+  splash,
+  onBoarding,
+  loginAndSignup,
+  otpVerification,
+  forgotPassword,
+  resetPassword,
+  addAddress,
+  homescreen,
+  symptomChecker,
+  talkToPaediatrician,
+  notifications,
+  addChild,
+  childProfile
+}

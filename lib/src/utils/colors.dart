@@ -21,6 +21,10 @@ class PrimaryColors {
   Color get electivesurgeries => const Color(0xFFFFA488);
   Color get symptomchecker => const Color(0xFFBCC8FF);
   Color get talktopaediatrition => const Color(0xFFB2D0C4);
+
+  // Shadows
+  Color get talktopaediatritionShadow => const Color(0xFFA0BBB0);
+  Color get symptomcheckerShadow => const Color(0xFFA9B4E6);
 }
 
 class SecondaryColors {
@@ -30,7 +34,6 @@ class SecondaryColors {
   Color get green => const Color(0xFF2AC171);
   Color get brown => const Color(0xFFB95000);
   Color get yellow => const Color(0xFFFFB646);
-  Color get background => const Color(0xFFFFF4EC);
 }
 
 class NeutralColors {
@@ -43,6 +46,7 @@ class NeutralColors {
   Color get textblackdark => const Color(0xFF2B2B2B);
 }
 
+// on boarding
 Color getBackgroundColor({int? currentIndex}) {
   switch (currentIndex) {
     case 0:
@@ -54,4 +58,19 @@ Color getBackgroundColor({int? currentIndex}) {
     default:
       return FlorynColors.primaryColors.symptomchecker;
   }
+}
+
+// home screen
+List<BoxShadow> cardBoxShadow(Color color) {
+  return [
+    BoxShadow(
+        offset: const Offset(-1.0, -1.0),
+        blurRadius: 2.0,
+        spreadRadius: -2.0,
+        color: color.withOpacity(0.5)),
+    BoxShadow(
+        offset: const Offset(5.0, 5.0),
+        blurRadius: 10.0,
+        color: color.withOpacity(0.9))
+  ];
 }

@@ -10,6 +10,7 @@ enum ScreenName {
   symptomChecker,
   talkToPaediatrician,
   notifications,
-  addChild,
+  addChildDetails,
+  addChildEducation,
   childProfile
 }

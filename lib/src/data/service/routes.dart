@@ -4,6 +4,8 @@ import 'package:floryn/src/ui/views/authentication/forgot.password/reset.passwor
 import 'package:floryn/src/ui/views/authentication/login.and.signup/addaddress/add.address.view.dart';
 import 'package:floryn/src/ui/views/authentication/login.and.signup/loginandsignup.view.dart';
 import 'package:floryn/src/ui/views/authentication/otp.verification/otp.verification.view.dart';
+import 'package:floryn/src/ui/views/home/addchild/addchilddetails/addchilddetails.view.dart';
+import 'package:floryn/src/ui/views/home/addchild/addchildeducation/addchildeducation.view.dart';
 import 'package:floryn/src/ui/views/home/homescreen/homescreen.view.dart';
 import 'package:floryn/src/ui/views/home/notification/notification.view.dart';
 import 'package:floryn/src/ui/views/home/symptomchecker/symptomchecker.view.dart';
@@ -42,6 +44,12 @@ class AppModule extends Module {
         transition: TransitionType.rightToLeftWithFade),
     ChildRoute('/notifications',
         child: (context, args) => const NotificationView(),
+        transition: TransitionType.rightToLeftWithFade),
+    ChildRoute('/addChildDetails',
+        child: (context, args) => const AddChildDetailsView(),
+        transition: TransitionType.rightToLeftWithFade),
+    ChildRoute('/addChildEducation',
+        child: (context, args) => const AddChildEducationView(),
         transition: TransitionType.rightToLeftWithFade)
   ];
 }
@@ -60,4 +68,12 @@ navigateTalkToPaediatrician() {
 
 navigateNotifications() {
   Modular.to.pushNamed(appRouteName(ScreenName.notifications));
+}
+
+navigateAddChildDetails() {
+  Modular.to.pushNamed(appRouteName(ScreenName.addChildDetails));
+}
+
+navigateAddChildEducation() {
+  Modular.to.pushNamed(appRouteName(ScreenName.addChildEducation));
 }

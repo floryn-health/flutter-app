@@ -19,6 +19,17 @@ class ConstantString {
 
   // notification
   static String get notifications => 'Notifications';
+
+  // child profile
+  static String get childProfile => 'Child Profile';
+  static String get education => 'Education';
+  static String get editProfile => 'Edit Profile';
+  static String get childPhoto => 'Child Photo';
+  static String get firstName => 'First Name';
+  static String get lastName => 'Last Name';
+  static String get dob => 'Date of Birth';
+  static String get gender => 'Gender';
+  static String get bloodGroup => 'Blood Group';
 }
 
 String onBoardingScreenHeading(int currentScreenIndex) {

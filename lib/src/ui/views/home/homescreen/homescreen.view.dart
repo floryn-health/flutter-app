@@ -29,9 +29,12 @@ class _HomeScreenViewState extends State<HomeScreenView> with DialogMixin {
           Icons.menu,
           color: FlorynColors.neutralColors.textblack,
         ),
-        title: Text(
-          'Home',
-          style: FlorynTextStyles.h4(fontWeight: FontWeight.bold),
+        title: GestureDetector(
+          onTap: () => navigateAddChildDetails(),
+          child: Text(
+            'Home',
+            style: FlorynTextStyles.h4(fontWeight: FontWeight.bold),
+          ),
         ),
         actions: [
           IconButton(

@@ -8,9 +8,11 @@ class TextFieldWidget extends StatelessWidget {
   final String? hintText;
   final Widget? suffixIcon;
   final Function()? onTap;
+  final Key? actionKey;
   final bool readOnly;
   const TextFieldWidget(
       {Key? key,
+      this.actionKey,
       this.textEditingController,
       this.hintText,
       this.suffixIcon,
@@ -23,6 +25,7 @@ class TextFieldWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 14.0),
       child: Neumorphic(
+        key: actionKey,
         padding: const EdgeInsets.symmetric(horizontal: 14.0),
         style: CustomNeumorphicStyle.innerShadow(),
         child: TextFormField(

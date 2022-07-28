@@ -1,4 +1,3 @@
-import 'package:clay_containers/widgets/clay_container.dart';
 import 'package:floryn/main.dart';
 import 'package:floryn/src/data/enums.dart';
 import 'package:floryn/src/data/service/routes.dart';
@@ -77,19 +76,24 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 ),
               GestureDetector(
                 onTap: () => nextBoardingScreen(fromSwipe: false),
-                child: ClayContainer(
-                    color: getBackgroundColor(currentIndex: currentIndex),
-                    height: 50.0,
-                    width: 125.0,
-                    borderRadius: 10,
-                    depth: 12,
-                    spread: 10,
-                    emboss: false,
-                    child: Center(
+                child: Neumorphic(
+                    style: CustomNeumorphicStyle.outerShadow(
+                        color: getBackgroundColor(currentIndex: currentIndex)),
+                    //     color: getBackgroundColor(currentIndex: currentIndex),
+                    //     height: 50.0,
+                    //     width: 125.0,
+                    //     borderRadius: 10,
+                    //     depth: 12,
+                    //     spread: 10,
+                    //     emboss: false,
+                    child: Container(
+                        height: 50.0,
+                        width: 125.0,
+                        alignment: Alignment.center,
                         child: Text(
-                      'Next',
-                      style: FlorynTextStyles.m2(),
-                    ))),
+                          'Next',
+                          style: FlorynTextStyles.m2(),
+                        ))),
               )
             ],
           ),

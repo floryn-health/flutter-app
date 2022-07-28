@@ -30,6 +30,11 @@ class ConstantString {
   static String get dob => 'Date of Birth';
   static String get gender => 'Gender';
   static String get bloodGroup => 'Blood Group';
+
+  // static lists
+  static List<String> get genderList => ['Male', 'Female', 'Other'];
+  static List<String> get bloodGroupList =>
+      ['A+', 'A-', 'B+ ', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
 }
 
 String onBoardingScreenHeading(int currentScreenIndex) {

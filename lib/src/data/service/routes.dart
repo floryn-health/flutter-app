@@ -1,3 +1,4 @@
+import 'package:floryn/main.dart';
 import 'package:floryn/src/data/enums.dart';
 import 'package:floryn/src/ui/views/authentication/forgot.password/forgot.password.view.dart';
 import 'package:floryn/src/ui/views/authentication/forgot.password/reset.password/reset.password.view.dart';
@@ -76,4 +77,11 @@ navigateAddChildDetails() {
 
 navigateAddChildEducation() {
   Modular.to.pushNamed(appRouteName(ScreenName.addChildEducation));
+}
+
+void clearDropdown() {
+  if (isDropdownOpened) {
+    floatingDropdown!.remove();
+    isDropdownOpened = !isDropdownOpened;
+  }
 }

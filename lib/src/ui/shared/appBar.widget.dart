@@ -1,3 +1,5 @@
+import 'package:floryn/main.dart';
+import 'package:floryn/src/data/service/routes.dart';
 import 'package:floryn/src/utils/colors.dart';
 import 'package:floryn/src/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +11,10 @@ PreferredSizeWidget customAppBar(
     backgroundColor: FlorynColors.neutralColors.background,
     elevation: 0.0,
     leading: IconButton(
-        onPressed: () => Modular.to.maybePop(),
+        onPressed: () {
+          clearDropdown();
+          Modular.to.maybePop();
+        },
         icon: Icon(
           Icons.arrow_back_ios_new,
           size: 20.0,
